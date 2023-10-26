@@ -1,0 +1,71 @@
+/* .cart-film{
+  border-radius: 15px;
+  margin: 30px 10px;
+  box-shadow: 1px 1px 11px #0000001c; 
+  height: 550px;
+  flex: 1 0 30%;
+  padding: 20px;
+}
+
+.img-container{
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+}
+.fil-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
+} */
+
+/* Styles pour le composant de carte de film */
+/* .film-card {
+  display: flex;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  background-color: #fff;
+}
+
+.film-card-image {
+  flex: 1;
+  max-width: 200px;
+  overflow: hidden;
+  border-radius: 8px 0 0 8px;
+}
+
+.film-card-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px 0 0 8px;
+}
+
+.film-card-details {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.film-card h3 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.film-overview {
+  margin-top: 10px;
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #666;
+}
+
+
+.film-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: scale(1.02);
+} */

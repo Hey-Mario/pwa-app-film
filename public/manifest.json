@@ -1,0 +1,34 @@
+{
+  "short_name": "mari-flix",
+  "name": "MARI-FLIX",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "mariFilx192.jpg",
+      "type": "image/jpg",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "mariFilx512.jpg",
+      "type": "image/jpg",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "prefer_related_applications":true,
+  "related_applications":[
+    {
+      "platform": "play",
+      "id": "com.google.samples.apps.iosched"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#ce6000",
+  "background_color": "#383737fa"
+}
