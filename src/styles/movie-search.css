@@ -4,7 +4,7 @@ body{
 
 /* movie-search.css */
 header{
-  position: fixed;
+  position: sticky;
   width: 100%;
   top: 0px;
   background-color: #383737fa;
@@ -156,7 +156,18 @@ button:hover {
 }
 
 form{
+  margin-top: 20px;
   width: 100%;
+  max-width: 600px;
   display: flex;
   padding: 0 10px;
+}
+
+.deco{
+  position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: #3c3b3b;
+    padding: 12px;
 }

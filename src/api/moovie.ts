@@ -1,3 +1,4 @@
+import instance from "../constants/axiosConfig";
 
 const options = {
   method: "GET",
@@ -8,20 +9,16 @@ const options = {
   },
 };
 
-const API_KEY = "7733263982f2fbede06debb35a9009ff";
+// const API_KEY = "7733263982f2fbede06debb35a9009ff";
 
-export const searchMovies = async (moviename:string) => {
+export const searchMovies = async (moviename:string, API_KEY: string) => {
   try {
-    const response = await fetch(
-      `https://api.themoviedb.org/3/search/movie?query=${moviename}&api_key=${API_KEY}`,
+    const response = await instance.get(
+      `/search/movie?query=${moviename}&api_key=${API_KEY}`,
       options
     );
 
-    if (!response.ok) {
-      throw new Error(`Request failed with status: ${response.status}`);
-    }
-
-    const data = await response.json();
+    const data = await response.data;
     return data.results;
   } catch (error) {
     console.error("Error in searchMovies:", error);

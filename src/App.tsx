@@ -1,79 +1,47 @@
-import React, { useEffect, useState } from "react";
-import './styles/movie-search.css';
-import { searchMovies } from "./api/moovie";
-import CartFilm from "./component/CartFilm";
-import * as AOS from 'aos';
+import './App.css';
+import { useEffect, useMemo, useState } from 'react';
+import instance from './constants/axiosConfig';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Home from './Home';
+import Login from './Login';
+import 'bootstrap/dist/css/bootstrap.min.css'
 
-const App: React.FC = () => {
-  const [searchTerm, setSearchTerm] = useState<string>("");
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [movies, setMovies] = useState<any[]>([]);
+function App() {
+  const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    AOS.init();
+    // instance.get('/users/me')
+    //   .then((user) => {
+    //     setUser(user.data);
+    //     setIsLoading(false);
+    //     // console.log(user);
+    //   })
+    //   .catch((err) => {
+    //     setIsLoading(false);
+    //     console.error(err);
+    //   });
   },[])
 
-  const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (searchTerm.trim()!=="") {
-      setIsLoading(true);
-      try {
-        const moviedata = await searchMovies(searchTerm);
-        console.log(moviedata);
-        setMovies(moviedata);
-        setSearchTerm('');
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error in handleSearch:", error);
-        setIsLoading(false);
-      }
-    }
-  };
+  // if(isLoading){
+  //   return(
+  //     <div>Loading...</div>
+  //   )
+  // }
 
-  function truncateOverview(overview: string, wordLimit: number): string {
-    const words = overview.split(" ");
-
-    if (words.length <= wordLimit) {
-      return overview;
-    }
-
-    const truncatedText = words.slice(0, wordLimit).join(" ");
-    return `${truncatedText} ...`;
-  }
   return (
-    <div>
-      <header>
-        <h1>MariFlix</h1>
-        <div className="search-bar">
-          <form onSubmit={handleSearch}>
-            <input
-              type="text"
-              placeholder="Nom du film"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-            {isLoading ? (
-              <button disabled>recherche...</button>
-            ) : (
-              <button type="submit">Rechercher</button>
-            )}
-          </form>
+    <BrowserRouter>
+      <div className="bg-light" style={{ minHeight: "100vh" }}>
+        <div className="container-full">
+          <Routes>
+            {/* Visitor authorized page */}
+            <Route path={''} element={<Login />} />
+            <Route path={'home'} element={<Home />} />
+          </Routes>
         </div>
-      </header>
-      {/* <hr /> */}
-      {/* <div
-        className="movie-list"
-      >
-        {movies?.map((movie: any) => <CartFilm movie={movie}/>)}
-      </div> */}
-      <div className="film-card-list">
-        {movies.map((movie) => (
-          <CartFilm movie={movie}/>
-        ))}
       </div>
-
-    </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;
