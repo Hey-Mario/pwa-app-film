@@ -146,6 +146,9 @@ button:hover {
   .film-card {
     width: calc(50% - 20px); /* En 2 colonnes sur les écrans plus petits */
   }
+  form{
+    max-width: 380px !important;
+  }
 }
 
 @media (max-width: 480px) {
@@ -153,6 +156,7 @@ button:hover {
     width: 100%; /* En pleine largeur sur les écrans encore plus petits */
     margin: 15px;
   }
+  
 }
 
 form{
